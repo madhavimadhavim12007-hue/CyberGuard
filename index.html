@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1d4ed8">
+  <meta name="description" content="CyberGuard scam awareness tool for phishing, digital arrest scams and suspicious applications.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <title>CyberGuard</title>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>CyberGuard</h1>
+      <p>Cyber Security Awareness Platform for Phishing, Digital Arrest Scams, and Malicious Applications.</p>
+    </div>
+  </header>
+  <main class="container">
+    <section class="card">
+      <h2>Analyze Suspicious Content</h2>
+      <div class="notice">Do not click links, download attachments, install applications, or share OTPs and passwords while investigating suspicious content.</div>
+      <textarea id="messageInput" placeholder="Paste a suspicious SMS, WhatsApp message, email, website link, or application download message here..."></textarea>
+      <div class="button-row">
+        <button class="primary-btn" id="analyzeBtn">Analyze Risk</button>
+        <button class="secondary-btn" id="clearBtn">Clear</button>
+      </div>
+      <div class="examples">
+        <button class="example-btn" data-example="digital">Digital arrest example</button>
+        <button class="example-btn" data-example="phishing">Bank phishing example</button>
+        <button class="example-btn" data-example="application">Malicious app example</button>
+      </div>
+    </section>
+    <section class="card results" id="results" aria-live="polite">
+      <div class="score-panel">
+        <div class="score-circle" id="scoreCircle"><div class="score-value"><strong id="scoreValue">0</strong><span>/ 100</span></div></div>
+        <div>
+          <div class="severity safe" id="severityBadge">Minimal Risk</div>
+          <h2 id="summaryTitle">Analysis Result</h2>
+          <p id="summaryText"></p>
+        </div>
+      </div>
+      <div class="results-grid">
+        <div class="result-section"><h3>Detected Warning Signs</h3><div id="findingsList"></div></div>
+        <div class="result-section"><h3>Recommended Actions</h3><ul id="recommendationsList"></ul></div>
+        <div class="result-section"><h3>Detected URLs</h3><div id="urlsList"></div></div>
+        <div class="result-section"><h3>Safety Reminder</h3><ul>
+          <li>Never share OTPs, PINs, passwords, or banking details.</li>
+          <li>Be suspicious of claims of arrest through video calls or demands for money to avoid arrest.</li>
+          <li>Do not install APK files sent through messages.</li>
+          <li>Verify requests using an official website or trusted phone number.</li>
+        </ul></div>
+      </div>
+      <p class="disclaimer">This is a basic local pattern checker, not a definitive security scanner. A low score does not prove content is safe.</p>
+    </section>
+  </main>
+  <footer>CyberGuard performs heuristic analysis on this device. Submitted text is not sent to a server by this app.</footer>
+  <script src="script.js"></script>
+  <script>
+    if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js").catch(() => {}));
+    }
+  </script>
+</body>
+</html>

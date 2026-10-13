@@ -1,0 +1,15 @@
+{
+  "id": "./",
+  "name": "CyberGuard Scam Awareness",
+  "short_name": "CyberGuard",
+  "description": "Awareness tool for phishing, digital arrest scams and malicious applications.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#eef4ff",
+  "theme_color": "#1d4ed8",
+  "icons": [
+    {"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+  ]
+}
